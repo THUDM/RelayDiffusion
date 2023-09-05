@@ -4,7 +4,7 @@
 
 We propose ***Relay Diffusion Model (RDM)*** as a better framework for diffusion generation. ***RDM*** transfers a low-resolution image or noise into an equivalent high-resolution one via blurring diffusion and block noise. Therefore, the diffusion process can continue seamlessly in any new resolution or model without restarting from pure noise or low-resolution conditioning.
 
-For a formal introduction, Read our paper: [Relay Diffusion: Unifying diffusion process across resolutions for image synthesis](https://github.com/THUDM/RelayDiffusion/blob/main/resources/RelayDiffusion.pdf).
+For a formal introduction, Read our paper: [Relay Diffusion: Unifying diffusion process across resolutions for image synthesis](https://cloud.tsinghua.edu.cn/f/d498992b615c4dba8a84/?dl=1).
 
 ## Setup
 
