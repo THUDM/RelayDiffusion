@@ -175,34 +175,45 @@ We provide best pre-trained checkpoints of RDM and their sampler settings for re
 you can follow the instruction of [EDM](https://github.com/NVlabs/edm) to train a new model of the first stage (standard diffusion). Using ImageNet for example, run command:
 
 ```bash
-torchrun --standalone --nproc_per_node=8 train.py --outdir=training-runs --data=datasets/imagenet-64x64.zip --eff-attn=1 \
-	--cond=1 --batch=4096  --batch-gpu=64 --lr=1e-4 --ema=50 --dropout=0.1 --fp16=1 --ls=25
+torchrun --standalone --nproc_per_node=8 train.py --outdir=training-runs --data=datasets/imagenet-64x64.zip --eff-attn=True \
+	--cond=1 --batch=4096  --batch-gpu=32 --lr=1e-4 --ema=50 --dropout=0.1 --fp16=1 --ls=25 \
+	--arch=adm --precond=edm
 ```
 
 If you want to train a second stage model (blurring diffusion), set argument `--precond=blur` and other arguments for the configuration of blurring diffusion. The command will be:
 
 ```bash
-torchrun --standalone --nproc_per_node=8 train.py --outdir=training-runs --data=datasets/imagenet-256x256.zip --eff-attn=1 \
-	--cond=1 --batch=4096  --batch-gpu=32 --lr=1e-4 --dropout=0.1 --fp16=1 --ls=1 \
-	--precond=blur --up-scale=4 --block-scale=0.15 --prob-length=0.93 --blur-sigma-max=3
+torchrun --standalone --nproc_per_node=8 train.py --outdir=training-runs --data=datasets/imagenet-256x256.zip --eff-attn=True \
+	--cond=1 --batch=4096  --batch-gpu=8 --lr=1e-4 --dropout=0.1 --fp16=1 --ls=1 \
+	--arch=adm --precond=blur --up-scale=4 --block-scale=0.15 --prob-length=0.93 --blur-sigma-max=3.0
 ```
 
 As for CelebA-HQ, train a first stage model with:
 
 ```bash
-torchrun --standalone --nproc_per_node=8 train.py --outdir=training-runs --data=datasets/CelebA-HQ-64x64.zip --eff-attn=1 \
-	--cond=1 --batch=4096  --batch-gpu=64 --lr=1e-4 --ema=50 --dropout=0.1 --ls=25
+torchrun --standalone --nproc_per_node=8 train.py --outdir=training-runs --data=datasets/CelebA-HQ-64x64.zip --eff-attn=True \
+	--cond=0 --batch=1024  --batch-gpu=32 --lr=1e-4 --dropout=0.15 --augment=0.2 --ls=1 \
+	--arch=adm --precond=edm
 ```
 
 And for training a second stage model:
 
 ```bash
-torchrun --standalone --nproc_per_node=8 train.py --outdir=training-runs --data=datasets/CelebA-HQ-256x256.zip --eff-attn=1 \
+torchrun --standalone --nproc_per_node=8 train.py --outdir=training-runs --data=datasets/CelebA-HQ-256x256.zip --eff-attn=True \
 	--cond=0 --batch=1024  --batch-gpu=8 --lr=1e-4 --dropout=0.2 --augment=0.2 --fp16=1 --ls=1 \
-	--arch=adm --precond=blur --up-scale=4 --block-scale=0.15 --prob-length=0.93 --blur-sigma-max=2.0
+	--arch=adm --precond=blur --up-scale=4 --block-scale=0.15 --prob-length=0.89 --blur-sigma-max=2.0
 ```
 
 ## Citation
+
+```
+@article{teng2023relay,
+  title={Relay Diffusion: Unifying diffusion process across resolutions for image synthesis},
+  author={Teng, Jiayan and Zheng, Wendi and Ding, Ming and Hong, Wenyi and Wangni, Jianqiao and Yang, Zhuoyi and Tang, Jie},
+  journal={arXiv preprint arXiv:2309.03350},
+  year={2023}
+}
+```
 
 ## Acknowledgements
 
