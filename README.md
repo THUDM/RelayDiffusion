@@ -1,5 +1,7 @@
 ## Relay Diffusion: Unifying diffusion process across resolutions for image synthesis <br><sub>Official Pytorch Implementation</sub>
 
+🎉**News!** The paper of RelayDiffusion has been accepted by ICLR 2024 (**Spotlight**)!
+
 ![](resources/samples.jpg)
 
 We propose ***Relay Diffusion Model (RDM)*** as a better framework for diffusion generation. ***RDM*** transfers a low-resolution image or noise into an equivalent high-resolution one via blurring diffusion and block noise. Therefore, the diffusion process can continue seamlessly in any new resolution or model without restarting from pure noise or low-resolution conditioning.
