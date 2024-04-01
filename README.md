@@ -1,4 +1,4 @@
-## Relay Diffusion: Unifying diffusion process across resolutions for image synthesis <br><sub>Official Pytorch Implementation</sub>
+## Relay Diffusion: Unifying diffusion process across resolutions for image synthesis <br><sub>Official Pytorch Implementation 🌐[[WiseModel]](https://www.wisemodel.cn/models/ZhipuAI/RelayDiffsuon/intro) 🌐[[Model Scope]](https://www.modelscope.cn/models/ZhipuAI/RelayDiffusion/summary)</sub>
 
 🎉**News!** The paper of RelayDiffusion has been accepted by ICLR 2024 (**Spotlight**)!
 
