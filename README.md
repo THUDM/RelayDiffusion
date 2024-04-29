@@ -149,7 +149,7 @@ We provide best pre-trained checkpoints of RDM and their sampler settings for re
       --data=generations/imagenet_samples/ --dest=eval-refs/imagenet_act_sample.npz 
   ```
 
-  Generate activation data from ImageNet zip:
+  Generate activation data from ImageNet zip: (The activation data of 128w images is up to 40GB, which is too big to upload. We only upload mu and sigma of [reference](https://cloud.tsinghua.edu.cn/f/8b98f215ae3a4977978c/?dl=1) and [samples](https://cloud.tsinghua.edu.cn/f/2b0f6fc577744fa19f1b/?dl=1) for calculating FID here. For more metrics, you need to generate activation by yourself.)
 
   ```bash
   torchrun --standalone --nproc_per_node=1 evaluate.py activations \
